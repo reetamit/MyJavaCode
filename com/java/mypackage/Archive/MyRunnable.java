@@ -1,14 +1,18 @@
-package com.java.mypackage;
 
 import java.io.*;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.java.mypackage.MyInheritance.Earth;
@@ -18,6 +22,8 @@ import com.java.mypackage.MyInheritance.Moon;
 
 class MyRunnableProject {
     public static void main(String[] args) throws IOException {
+//Student new_Student = new Student();
+
 
        /* var obj = new NewClass(12);
         String[] random_array = {"1234","ABCD","Hati","Bang","ChatarMata"};
@@ -134,6 +140,30 @@ class MyRunnableProject {
             .sorted()
             .forEach(System.out::println);*/
             
+       //DummyClass dc = new DummyClass();
+        /*List<Integer> list = Arrays.asList( 2,12,-5,3);
+        int value = list.stream().sorted().skip(0).limit(1).max(Integer::compareTo).get();
+        
+        int value = list.stream().max(Integer::compareTo).get();
+        System.out.println("value  :"+value );*/
+       List<Integer> list = Arrays.asList(3,4,4,4,5,6,6,6,7,7,8,9,0);
+       Set<Integer> unique = new HashSet<Integer>();
+
+       /*for(Integer i : list)
+       {
+        if(!unique.add(i))
+        {
+            System.out.println("Duplicate:"+ i);
+        }
+        else {
+            System.out.println("Unique:"+i);
+        }
+       } */
+       list.stream()
+       .filter(n-> !unique.add(n))
+       .collect(Collectors.toSet())
+       .forEach(System.out::println);
        
-    }
+
+    }             
 }

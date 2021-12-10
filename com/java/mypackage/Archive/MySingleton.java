@@ -1,4 +1,3 @@
-package com.java.mypackage;
 
 public class MySingleton {
 
